@@ -1,0 +1,390 @@
+#Guidelines
+#-Make sure the User can interact with the story(maybe use if else statement)
+#-User has the capabilities to skip the dialogue with a input
+#-Have the option for the User to have a good ending and a bad ending
+#-Branch off system
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
+def replace_word(text, findWord, replaceWord):
+    return ' '.join(replaceWord if word == findWord else word for word in text.split(' '))
+
+from time import sleep
+
+from art import *
+
+from sys import exit
+#Inter-Pause between Sections
+def Section_Pause():
+    sleep(5)
+
+def Fast_Section_Pause():
+    sleep(2)
+
+import sys, os
+from ctypes import *
+
+# Disable
+def blockPrint():
+    sys.stdout = open(os.devnull, 'w')
+
+# Restore
+def enablePrint():
+    sys.stdout = sys.__stdout__
+
+# Choice option
+def Choice():
+    (input(bcolors.OKGREEN + "Choice: "))
+
+
+def Error_Screen():
+ print(bcolors.WARNING + "Error Choose again" + bcolors.OKGREEN)
+
+
+
+def Ui():
+    print(bcolors.OKCYAN + "Options:")
+
+
+#Variables
+ok = windll.user32.BlockInput(True)
+#Start of Story
+print(f""" 
+
+You awoken to an antique-like tavern
+not remembering anything on how you got here.
+you decided to head in to the tavern as to get for answers.
+When you enter the tavern you hear the deafening silence of the tavern as if it's a GhostTown.
+you glanced around the tavern looking for anyone that knows a sliver of information on Where in this place is.
+That's where you spotted a tall,bold looking man wiping a cup with a piece of cloth
+you decided to approach the man.He notices you staring at him with a intent of a Curious expression.
+You sat down.
+Bold man:"what's your name traveler?" """)
+Name = input("Please write your name "+ bcolors.ENDC)
+Names_list = [bcolors.OKBLUE + 'Bold man:' + bcolors.ENDC,bcolors.OKCYAN + 'Elena:'+ bcolors.ENDC,bcolors.OKGREEN+Name+bcolors.ENDC]
+print(f"""
+{Names_list[0]}"{Name},huh? that name doesn't sound like your from around here.
+Where are you from then?"
+""")
+Ui()
+Ans1 = print("1-)I don't know where I am from")
+Ans2 = print("2-)why should I tell you")
+
+while True:
+    Question_Answer = (input(bcolors.OKGREEN + "Choice: " + bcolors.ENDC))
+    if Question_Answer == "1":
+        print(f"""
+{Names_list[0]}"How do you not know where you are form?"   
+        """)
+        break
+
+    elif Question_Answer == "2":
+        print(f"""
+{Names_list[0]}"I just want to know because you don't seem like you belong in this kind of area,
+We don't get frequent travelers from outside of the country                                                    
+              """)
+        break
+
+    elif Question_Answer != Ans1 or Question_Answer != Ans2:
+        Error_Screen()
+        continue
+
+
+Section_Pause()
+
+
+if Question_Answer == "1":
+    Ui()
+    print(f"1-)I woke up here")
+    print(f"2-)I don't remember anything form my memories")
+elif Question_Answer == "2":
+    Ui()
+    print("3-)How long has it been since you had a traveler?")
+    print("4-)What country is this?")
+elif Question_Answer != "1" or Question_Answer != "2" or Question_Answer != "3" or Question_Answer != "4":
+    Error_Screen()
+
+
+while True:
+    Question_Answer = (input(bcolors.OKGREEN + "Choice: " + bcolors.ENDC))
+    if Question_Answer == "1":
+        print(f"""{Names_list[0]}Where did you wake up at?""")
+        break
+
+
+    elif Question_Answer == "2":
+        print(f'{Names_list[0]}"Well,What do you actually remember from when you woke up?"')
+        break
+
+
+    if Question_Answer == "3":
+        print(f'{Names_list[0]}"It has been a few days since I had my last traveler. As it is now Dawnbreaking season."')
+        break
+
+
+    elif Question_Answer == "4":
+        print(f'{Names_list[0]}"This is frostOrnn"')
+        break
+    else:
+        Error_Screen()
+        continue
+
+
+Section_Pause()
+if Question_Answer == "1":
+    print(f'{Names_list[2]}:"I woke up outside the tavern and I thought I could find some answers when I came in here"')
+elif Question_Answer == "2":
+    print(f'{Names_list[2]}:"I remember I woke up with only the memories of my name"')
+elif Question_Answer == "3":
+    print(f'{Names_list[2]}:"What is Dawnbreaking season?"')
+elif Question_Answer == "4":
+    print(f'{Names_list[2]}:"Oh..."')
+Section_Pause()
+if Question_Answer == "1":
+    print(f'{Names_list[0]}"So {Name} What do you want to know!?"')
+elif Question_Answer == "2":
+    print(f'{Names_list[0]}"well {Name} don\'t worry I can let you live here for the time being until you get your memories back.\n You won\'t stay here for free though, your going to have to do some chores if you want to stay here'"")
+elif Question_Answer == "3":
+    print(f'{Names_list[0]}"its a season where the creatures of the Overworld enter FrostOrnn"')
+elif Question_Answer == "4":
+    print(f'{Names_list[0]}"Yeah,Welcome to FrostOrnn {Name} where the snow never ends and it gets colder year by year: Bold man"')
+
+Section_Pause()
+if Question_Answer == "1":
+    Ui()
+    print('1-)"I want to know if there\'s a city around this place'"")
+    print("2-)'What is this place called?'")
+elif Question_Answer == "2":
+    Ui()
+    print('3-)"Well thank you for your kind offer,\n if you wouldn\'t mind I would like to stay here')
+    print('4-)"Thank you for the kind offer,but I would have to decline\n I would like to find out who I am as quickly as possible"')
+elif Question_Answer == "3":
+    Ui()
+    print('5-)"What kind of creatures?"')
+    print('6-)"Are the creatures in FrostOrnn right now?"')
+elif Question_Answer == "4":
+    Ui()
+    print('7-)"is there a city in FrostOrnn"')
+    print('8-)"Why does it get colder year by year?"')
+
+
+while True:
+    Question_Answer = (input(bcolors.OKGREEN + "Choice: " + bcolors.ENDC))
+    if Question_Answer == "1":
+        print(f'{Names_list[0]}"Yeah there is a city Northwest of the tavern."')
+        break
+    elif Question_Answer == "2":
+        print(f'{Names_list[0]}"This place is called FrostOren"')
+        break
+    elif Question_Answer == "3":
+        print(f'{Names_list[0]}"Sure, your welcome to stay as long as you like"')
+        break
+    elif Question_Answer == "4":
+        print(f'{Names_list[0]}"No problem {Name},If you want I could introduce you to a friend of mine that is a mage.\n She might be able to help you recover your memories.\nAlthough I don\'t know if she is coming back today"')
+        break
+    elif Question_Answer == "5":
+        print(f'{Names_list[0]}"Creatures like Giant spiders,Ice Trolls and Many more.\nI suggest you don\'t go looking for them,not many live to tell the tale of those Monsters."')
+        break
+    elif Question_Answer == "6":
+        print(f'{Names_list[0]}"Yes,however many people in FrostOren were taught and trained to fight off these monsters,only few monsters are to be treated with caution"')
+        break
+    elif Question_Answer == "7":
+        print(f'{Names_list[0]}"yes there is a city in FrostOren,However it requires the need of someone to travel to there"')
+        break
+    elif Question_Answer == "8":
+        print(f"""{Names_list[0]}"Well, many years ago.This place wasn\'t called FrostOren, in fact it was called OrenGuard.\n It was a prosperous city,however when the night raid invaded Orenguard.They were Outnumbered.\nThe king of Orenguard decided to place a curse on Orenguard before he died,So that night raid can\'t get Orenguard and all its Treasures".
+It was said that the curse was made by a NightWitch and was to made Orenguard a uninhabitable place for anyone,and would grew colder and colder every night.Craftsman have discovered a way to enchant their clothings to be resistant to the Harsh conditions of FrostOrnn.
+but it is Uncertain that the resistance would last any longer as the curse is growing stronger every year." """)
+        break
+    else:
+        Question_Answer != "1" or Question_Answer != "2" or Question_Answer != "3" or Question_Answer != "4" or Question_Answer != "5" or Question_Answer != "6" or Question_Answer != "7" or Question_Answer != "8"
+        Error_Screen()
+        continue
+
+Section_Pause()
+if Question_Answer == "1":
+    Ui()
+    print("1-)Could you show me the way to the city?")
+    print("2-)Is there a map that you have that I could use to guide myself?")
+elif Question_Answer == "2":
+    Ui()
+    print("3-)Oh,what other cities are there in this world?")
+    print("4-)Where is FrostOren located in this world?")
+elif Question_Answer == "3":
+    tprint("ENDING 1 FOUND")
+    exit()
+elif Question_Answer == "4":
+    Ui()
+    print("5-)that would be incredibly useful...")
+    print("6-)Magic it exists?")
+elif Question_Answer == "5":
+    Ui()
+    print("7-)Where do these monsters usually reside at? ")
+    print("8-)Why don't you guys just hire monster hunters to get rid of them?")
+elif Question_Answer == "6":
+    Ui()
+    print("9-)What kind of monsters are we to be cautious of?")
+    print("10-)If they were taught to kill FrostOren monsters,would that make them a Monster hunter?")
+    Fast_Section_Pause()
+elif Question_Answer == "7":
+    Ui()
+    print("11-)Could you guide me to it?")
+    print("12-)Is there anyone you know who can help me find my missing memories?")
+    Fast_Section_Pause()
+elif Question_Answer == "8":
+    Ui()
+    print("13-)So why are you people still living in FrostOren after it had been cursed?")
+    print("14-)Isn't it possible for the Night witch to reverse the curse of FrostOren?")
+while True:
+    Question_Answer = (input(bcolors.OKGREEN + "Choice: " + bcolors.ENDC))
+    if Question_Answer == "1":
+        print(f'{Names_list[0]}"Sure I could call a friend of mine, to help guide you into the city".')
+        break
+    elif Question_Answer == "2":
+        print(f'{Names_list[0]}"Yes let me go and find the map, it\'s at the back"')
+        break
+    elif Question_Answer == "4":
+        print(f'{Names_list[0]}"it\'s located at the very edge of the equator,close FrostOren is also near NeighGuard and Lolis.\n Both cities are still fortunate enough to continue thriving till this day."')
+        break
+    elif Question_Answer == "5":
+        print(f'{Names_list[0]} : "Okay,I will tell my friend,Elena once she gets back from her adventures."')
+        break
+    elif Question_Answer == "6":
+        print(f'{Names_list[0]}"It has always existed since the world had been formed,in fact the world was formed by a magical phenomenon.\n that no scientist can explain."')
+        break
+    elif Question_Answer == "7":
+        print(f'{Names_list[0]}"They usually reside South of FrostOren,because from what I heard there is a particular scent drawing most of the monsters over there "')
+        break
+    elif Question_Answer == "8":
+        print(f'{Names_list[0]}"Oh,believe me many have tried to recruit a whole army of monster hunters to clear the monsters in FrostOren.\n it doesn\'t matter though,Monsters keep respawning over and over again for some weird reason."')
+        break
+    elif Question_Answer == "9":
+        print(f'{Names_list[0]}"Well in FrostOren,many monster should be low enough level for a normal villager to deal with.\n However there are some that are to dangerous to be killed such as FrostGiants due to their impeccable sizes.'"")
+        break
+    elif Question_Answer == "10":
+        print(f'{Names_list[0]}:"Yes most Villagers here were past B rank adventurers."')
+        break
+    elif Question_Answer == "11":
+        print(f'{Names_list[0]}"I wish I could help you,but I would need to attend to the tavern.\n However,I have a friend that can help guide you."')
+        break
+    elif Question_Answer == "12":
+        print(f'{Names_list[0]}:"I have a friend that may be able, to help you {Name}.\n she is a mage that specialises,in healing"')
+        break
+    elif Question_Answer == "13":
+        print(f'{Names_list[0]}Bold man:"Well FrostOren has many Valuable relics that were said to be hidden in many dungeons scattered throughout Frostoren.\n ')
+        break
+    elif Question_Answer == "14":
+        print(f'{Names_list[0]}:"Many Mages actually Traveled from many parts of the world to try to reverse the curse that the nightwitch put upon Frostoren.\n In fact,If any mages were to reverse the curse of orenguard.They would be rewarded handsomely by being the King or Queen of Orenguard"')
+        break
+    else:
+        Question_Answer != "1" or Question_Answer != "2" or Question_Answer != "3" or Question_Answer != "4" or Question_Answer != "5" or Question_Answer != "6" or Question_Answer != "7" or Question_Answer != "8" or Question_Answer != "9" or Question_Answer != "10" or Question_Answer != "11" or Question_Answer != "12" or Question_Answer != "13" or Question_Answer != "14"
+        Error_Screen()
+        continue
+
+Section_Pause()
+if Question_Answer == "1":
+    print(f'{Names_list[2]}:That would be great')
+elif Question_Answer == '2':
+    print(f'{Names_list[2]}:Okay I can wait')
+elif Question_Answer == '4':
+    print(f'{Names_list[2]}:Are the cities both very close to FrostOren?')
+elif Question_Answer == '5':
+    print(f'{Names_list[2]}:Sure.')
+elif Question_Answer == '6':
+    print(f'{Names_list[2]}:what kind of phenomenon?')
+elif Question_Answer == '7':
+    print(f'{Names_list[2]}:What kind of scent?')
+elif Question_Answer == '8':
+    print(f'{Names_list[2]}:Is it because of the Nightwitch Curse?')
+elif Question_Answer == '9':
+    print(f'{Names_list[2]}:I see, they do sound intimidating...')
+elif Question_Answer == '10':
+    print(f'{Names_list[2]}:How come they are so high rank?')
+elif Question_Answer == '11':
+    print(f'{Names_list[2]}:Who is this friend of yours?')
+elif Question_Answer == '12':
+    print(f'{Names_list[2]}:That would be really helpful ')
+elif Question_Answer == '13':
+    print(f'{Names_list[2]}:What kind of valuable relics?')
+elif Question_Answer == '14':
+    print(f'{Names_list[2]}:Did the mages succeed?')
+
+Section_Pause()
+if Question_Answer == '1':
+    print(f'{Names_list[0]} I would be sure to tell once you she comes back')
+elif Question_Answer == '2':
+    print(f'you waited for the {Names_list[0]} to come back')
+elif Question_Answer == '4':
+    print(f'{Names_list[0]} Yes both cities are very close to FrostOren.\n In fact I could have a friend of mine escort you to either one of the cities.')
+elif Question_Answer == '5':
+    print(f'{Names_list[0]} I will tell her as soon as she comes back')
+elif Question_Answer == '6':
+    print(f'{Names_list[0]} Well I don\'t know either.')
+elif Question_Answer == '7':
+    print(f'{Names_list[0]} Well,I\'m not really sure myself,but I heard it had to do with FrostOren\'s curse')
+elif Question_Answer == '8':
+    print(f'{Names_list[0]} From what I heard,')
+elif Question_Answer == '9':
+    print(f'{Names_list[0]} They are.They are about 8 metres tall,they have thick fur and have sharp claws with sharp teeth to crunch bones..')
+elif Question_Answer == '10':
+    print(f'{Names_list[0]} Many people come to FrostOren because of the amount of Monsters you can slay to sell their parts')
+elif Question_Answer == '11':
+    print(f'{Names_list[0]} Her name is called elena,i met her a while back')
+elif Question_Answer == '12':
+    print(f'{Names_list[0]} No worries once she gets back I will convince her')
+elif Question_Answer == '13':
+    print(f'{Names_list[0]}It has been said that there are god tier relics in FrostOren.One of which is called Sword of saint.It is said that it purifys the most corrupted of monsters...')
+elif Question_Answer == '14':
+    print(f'{Names_list[0]} No Most of them passed away from the Nightwitches curses after they tried to remove it')
+Section_Pause()
+#Elena introduction
+print(f"""It was then you heard a creak form the tavern doors,a shadow loomed over the bright blue moon.It had a slim silhouette,
+with a magican's hat and a what appears to be a magic wand at it's left hand...It walks into the tavern light revealing a white haired small petite girl with scars on her arms.
+She look's towards the tavern master and you and walks towards the both of you with a look of seriousness...
+""")
+
+Section_Pause()
+print(f'{Names_list[0]} Ah elena your back! How were your adventures?')
+Fast_Section_Pause()
+print(f'{Names_list[2]}:No luck today finding any good loot.More importantly who is this?')
+Fast_Section_Pause()
+print(f'{Names_list[0]} His name is {Name}.Apparently he woke up here with no memories about where he came from.\n could you help him out to help him find his memories since you specialise in healing magic?')
+Fast_Section_Pause()
+print(f'{Names_list[2]}:Hmm even though I specialise in healing magic,I can\'t do memory based healing..Although i can introduce you to a friend of mine who do memory based magic..However my friend that is all the way at lolis are you willing to travel?')
+
+
+while True:
+    Ui()
+    print('1-)Yes')
+    print('2-)No')
+    Question_Answer = (input(bcolors.OKGREEN + "Choice: " + bcolors.ENDC))
+    if Question_Answer == '1':
+        print(f'{Names_list[2]}:okay let\'s rest up and head out tomorrow')
+        tprint('THANK YOU FOR PLAYING CHOOSE YOUR OWN ADVENTURE DEMO')
+        break
+    elif Question_Answer == '2':
+        print(f'{Names_list[2]}:Don\'t you want to travel? to discover your memories?')
+        Fast_Section_Pause()
+        print(f'{Names_list[2]}:I don\'t think that I should focus on finding my memories.\n I want to learn more about this world and how it works first..')
+        Fast_Section_Pause()
+        print(f'{Names_list[2]}:I see..then I can teach you how this world works then.')
+        Fast_Section_Pause()
+        print(f'{Names_list[2]}:That would be great..If you could can you teach me magic by chance as well?')
+        Fast_Section_Pause()
+        print(f'{Names_list[2]}:Sure I could teach you magic as well.\n But prepare to be tortured as learning magic is very tiring')
+        Fast_Section_Pause()
+        print(f'{Names_list[2]}:I would be sure to give it my best')
+        tprint('THANKS FOR PLAYING CHOOSE YOUR OWN ADVENTURE DEMO')
+        break
+    else:
+        Question_Answer != '1' or Question_Answer != '2'
+        Error_Screen()
+        continue
