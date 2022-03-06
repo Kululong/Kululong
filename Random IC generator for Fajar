@@ -1,0 +1,52 @@
+import random
+import string
+Names = 'James'
+Numbers = '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
+Length = 9
+Letters = 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+First_Names = 'Tan ', 'Tay ', 'Lee ', 'Chew ', 'Jun ', 'jin ', 'Jiang ', 'Ming ', 'Jie ', 'Shen '
+Middle = 'Kai', 'Cheng', 'Jing', 'Wong', 'Ong', 'Man', 'Ning', 'En'
+Random_First_Names = random.choice(First_Names)
+Random_Middle_Names = random.choice(Middle)
+Random_Chinese_Name = Random_First_Names + Random_Middle_Names
+Amount_students = 100
+
+class Fajar_students:
+    def __init__(self,Name,Age,Class,ID):
+        self.Name = Name
+        self.Age = Age
+        self.Class = Class
+        self.ID = ID
+
+    def Students(self):
+        for num in range(100):
+            First_letter = Letters
+            Last_letter = Letters
+            second_number = Numbers
+            third_number = Numbers
+            Fourth_number = Numbers
+            Fifth_number = Numbers
+            Sixth_number = Numbers
+            Seventh_number = Numbers
+            Eighth_number = Numbers
+            First_letter = random.choice(Letters)
+            Last_letter = random.choice(Letters)
+            second_number = random.choice(Numbers)
+            third_number = random.choice(Numbers)
+            Fourth_number = random.choice(Numbers)
+            Fifth_number = random.choice(Numbers)
+            Sixth_number = random.choice(Numbers)
+            Seventh_number = random.choice(Numbers)
+            Eighth_number = random.choice(Numbers)
+            Random_letters = random.sample(Letters, 9)
+            Random_numbers = random.sample(Numbers, 9)
+            Total = Random_numbers + Random_letters
+            Total = random.sample(Total, 9)
+            IC = f'{First_letter} {second_number} {third_number} {Fourth_number} {Fifth_number} {Sixth_number} {Seventh_number} {Eighth_number} {Last_letter}'
+            Random_First_Names = random.choice(First_Names)
+            Random_Middle_Names = random.choice(Middle)
+            print(f'{Random_First_Names}{Random_Middle_Names}:  {IC}')
+
+
+
+User = Fajar_students.Students(1)
