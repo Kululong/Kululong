@@ -1,0 +1,31 @@
+print('Rock')
+print('paper')
+print('scissors')
+Computer_choices = ('Rock', 'paper', 'scissors')
+Computer_choices = random.choice(Computer_choices)
+while True:
+ Received_input = input('Please enter your choice:')
+ if Received_input == Computer_choices:
+    print('Tie, no one wins')
+    break
+ elif Received_input == 'Rock' and Computer_choices == 'paper':
+    print('Paper wraps Rock: You Lose!')
+    break
+ elif Received_input == 'Rock' and Computer_choices == 'scissors':
+    print('Rock beats scissors: You win! ')
+    break
+ elif Received_input == 'paper' and Computer_choices == 'rock':
+    print('paper wraps rock: You win!')
+    break
+ elif Received_input == 'paper' and Computer_choices == 'scissors':
+    print('scissors cuts paper: You Lose!')
+    break
+ elif Received_input == 'scissors' and Computer_choices == 'rock':
+    print('Rock beats scissors: You Lose!')
+    break
+ elif Received_input == 'scissors' and Computer_choices == 'paper':
+    print('scissors cuts paper: You win!')
+    break
+ elif Received_input != 'Rock' or Received_input != 'paper' or Received_input != 'scissors':
+    print('Please Choose again')
+    continue
