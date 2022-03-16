@@ -1,0 +1,32 @@
+def Mutiplyication():
+    result = First_Number_input * Second_Number_input
+    print(result)
+
+def Division():
+    result = First_Number_input/Second_Number_input
+    print(result)
+
+def Addition():
+    result = First_Number_input + Second_Number_input
+    print(result)
+
+def Subtraction():
+    result = First_Number_input-Second_Number_input
+    print(result)
+result = '0'
+First_Number_input = int(input('Enter first number:'))
+Second_Number_input= int(input('Enter second number'))
+print('*')
+print('+')
+print('-')
+print('/')
+Operator_choosing = input('Choose your operator ')
+
+if Operator_choosing == '*':
+    Mutiplyication()
+elif Operator_choosing == '+':
+    Addition()
+elif Operator_choosing == '-':
+    Subtraction()
+elif Operator_choosing == '/':
+    Division()
