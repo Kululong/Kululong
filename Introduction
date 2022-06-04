@@ -12,8 +12,8 @@ Operators [✔️]
 Control Flow (If/Else) [✔️]
 Loops and iterables [❌] (Iterables haven't been learned yet)
 Functions [✔️]
-Basic Data Structure [❌] (not familiar with all the basic data Structure)
-Mutable vs Immutable [❌] (not familiar with it)
+Basic Data Structure [✔️] 
+Mutable vs Immutable [✔️]
 Common methods [✔️] 
 File IO [❌] (Haven't learned yet)
 
