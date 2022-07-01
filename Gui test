@@ -1,0 +1,143 @@
+
+
+from tkinter import *
+import tkinter as tk
+
+window = Tk()
+window.title("THE DEEPEST SECRET")
+window.geometry('1920x1080')
+window.config(background='#6b6a6a')
+Caution = PhotoImage(file='Caution.png')
+Red_button = PhotoImage(file='Button.png')
+window.iconphoto(True, Caution)
+
+
+
+def New_Top_level4():
+    top4 = Toplevel
+    top4.geometry('1920x1080')
+    top4.title('w')
+
+
+
+    top4.mainloop()
+
+
+
+
+def New_Top_Level3():
+    top3 = Toplevel()
+    top3.geometry('1920x1080')
+    top3.title('Limbo')
+    label = Label(top3,
+                  text='THIS IS YOUR LAST CHANCE TO HEAD BACK ARE YOU SURE YOU DO NOT WANT TO TAKE IT?'
+
+                  )
+    button1 = Button(top3,
+                     text='YES',
+                     command=New_Top_level4)
+
+    button2 = Button(top3,
+                     text='No',
+                     command=window.destroy)
+
+    label.pack()
+    button1.pack()
+    button2.pack()
+
+
+
+    top3.mainloop()
+
+
+
+
+def New_Top_Level2():
+    top2 = Toplevel()
+    top2.geometry('1980x1080')
+    top2.title('Purgatory')
+    button = Button(top2,
+                    text='ARE YOU REALLY SURE???',
+                    command=New_Top_Level3)
+
+    button.pack()
+
+    button.place(x=500, y=500)
+
+
+    top2.mainloop()
+
+
+def New_Top_level():
+    top1 = Toplevel(window)
+    top1.geometry('1920x1080')
+    top1.title('WELCOME TO THE FIRST TRIAL')
+    top1_label = Label(top1,
+                       text='Are you sure? 😈',
+                       font=('Comic sans',30),
+                       bg='#6b6a6a',
+                       fg='red',
+                       padx=10,
+                       pady=340
+
+
+
+                       )
+
+
+    button2 = Button(top1,
+                    image=Red_button,
+                    command=New_Top_Level2,
+                    font=('Comic sans',30),
+                    fg='#6b6a6a',
+                    bg='#6b6a6a',
+                    activeforeground='#6b6a6a',
+                    activebackground='#6b6a6a',
+                    borderwidth='0'
+
+                     )
+
+
+
+
+
+    button2.pack()
+    button2.place(relx=0.5, rely=0.5, anchor=CENTER)
+    top1_label.pack()
+    top1.config(background='#6b6a6a')
+    top1.mainloop()
+
+
+
+
+
+
+window_button = Button(window,
+                       text='BEWARE OF THE BUTTON',
+                       command=New_Top_level,
+                       font=('Comic sans',30),
+                       fg='#6b6a6a',
+                       bg='#6b6a6a',
+                       activeforeground='#6b6a6a',
+                       activebackground='#6b6a6a',
+                       image=Red_button,
+                       borderwidth='0'
+
+                       )
+window_label = Label(window,
+                     text="Don't press the button",
+                     borderwidth='0',
+                     font=('Comic san',50),
+                     fg='white',
+                     background='#6b6a6a',
+
+                     )
+
+
+window_label.pack()
+window_label.place(relx=0.5, rely=0.1, anchor=N)
+
+window_button.pack()
+window_button.place(relx=0.5, rely=0.5, anchor=CENTER)
+
+window.mainloop()
